@@ -1,20 +1,19 @@
-import Link from "next/link";
-import { Datatable } from "./components/Datatable/Datatable";
+import Datatable from "./components/Datatable/Datatable";
 import { Coin } from "./interfaces/coins.interface";
-import { Card } from "./components/Card/Card";
 
 const getCoins = async () => {
   try {
     const response = await fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', {
       method: 'GET',
       headers: {
-        "X-CMC_PRO_API_KEY": "",
+        "X-CMC_PRO_API_KEY": "5e65aece-33dc-4362-8911-a5b4c80f18fe",
       }
     });
-    const data = await response.json();
-    return data.data;
+    const json = await response.json();
+    return [...json.data];
   } catch (error) {
     console.log(error);
+    return [];
   }
 }
 
@@ -22,17 +21,8 @@ export default async function Home() {
   const data: Coin[] = await getCoins();
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-6">
-      <div className="my-4 mb-8">
-        <h1 className="text-3xl">Crypto Viewer</h1>
-      </div>
-      {/* <Link href={"/cryptocurrencies"}>test</Link> */}
+    <main>
       <Datatable coins={data}/>
-      {/* {
-        data.length > 0 ? (
-          data.map((coin, index) => (<Card key={index} coin={coin} />))
-        ) : null
-      } */}
     </main>
   )
 }

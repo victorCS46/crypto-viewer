@@ -1,8 +1,10 @@
 import './globals.css'
+import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { ThemeProvider } from './components/Theme/ThemeProvider'
-import { ThemeSwitcher } from './components/Theme/ThemeSwitcher'
+
+import SearchAppBar from './common/components/NavBar/Navbar'
+import Loading from './loading'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,14 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-        >
-          <ThemeSwitcher />
+        <SearchAppBar/>
+        <Suspense fallback={<Loading />}>
           {children}
-        </ThemeProvider>
+        </Suspense>
       </body>
     </html>
   )
