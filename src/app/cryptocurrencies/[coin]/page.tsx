@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material';
 
-import Coinmarketcap from '@/app/api/Coinmarketcap';
+import Coinmarketcap from '@/app/api/coinmarketcap';
 import { Coin } from '@/app/interfaces/coins.interface';
 import { convertToInternationalCurrencySystem } from '@/app/helpers/format';
 
