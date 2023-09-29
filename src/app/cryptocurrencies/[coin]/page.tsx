@@ -23,17 +23,9 @@ const getCoin = async (id: number) => {
 export default async function Crypto({ params }: Params) {
   const coin: Coin = await getCoin(params.coin);
 
-  if (!coin) {
-    return (
-      <Typography variant="h6">
-        No data was fetched
-      </Typography>
-    );
-  }
-
   return (
     <>
-      <Table>
+      <Table className="animate__animated animate__fadeIn">
         <TableHead>
           <TableRow>
             <TableCell align='center' colSpan={2}>
