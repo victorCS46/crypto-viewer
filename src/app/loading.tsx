@@ -2,13 +2,16 @@ import { Box, Typography } from "@mui/material";
 
 export default function Loading() {
   return (
-    <Box sx={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      marginTop: 20,
-    }}>
+    <Box
+      sx={{
+        height: '80vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 2,
+      }}
+    >
       <Typography variant="h6">Fetching coins...</Typography>
       <svg width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#000">
         <g fill="none" fillRule="evenodd">

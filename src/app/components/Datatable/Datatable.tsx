@@ -98,6 +98,7 @@ export default function Datatable(props: Props) {
 
   return (
     <DataGrid
+      className="animate__animated animate__fadeIn"
       rows={rows}
       columns={columns}
       onRowClick={handleRowClick}
