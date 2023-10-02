@@ -3,11 +3,15 @@
 import { Box, Button, Typography } from '@mui/material';
 import { ErrorOutline } from '@mui/icons-material';
 
-export default function error() {
+export default function error({
+  error,
+  reset
+}: {
+  error: Error
+  reset: () => void
+}) {
 
-  const handleRefresh = () => {
-    window.location.reload();
-  };
+  const handleRefresh = (): void => reset();
 
   return (
     <Box
